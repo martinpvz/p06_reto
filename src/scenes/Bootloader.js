@@ -12,9 +12,8 @@ class Bootloader extends Phaser.Scene {
     preload() {
         //ESCENARIO
         this.load.path = './assets/';
-        this.load.image('Fondo2', 'Fondo2.png');
-        this.load.image('wooden', 'woodframe.png');
-        this.load.image('FondoBlanco','fondoBlanco.png')
+        this.load.image('Fondo2', 'fondo.jpg');
+        this.load.image('wooden', 'rockframe.png');
         this.load.audio('principal', ['./principal.mp3']);
         this.load.audio('martinSong', ['./martin.mp3']);
         this.load.audio('alheSong', ['./alheli.mp3']);
@@ -46,11 +45,11 @@ class Bootloader extends Phaser.Scene {
 
         //AÑADIR SPRITES
         //SPRITE ALHELI
-        this.alheli = this.add.sprite(180, 260, 'alhe', 0).setScale(0.8);
-        this.alheliR = this.add.image(180, 260, 'RostroA').setInteractive().setScale(0.25);
+        this.alheli = this.add.sprite(200, 260, 'alhe', 0).setScale(0.8);
+        this.alheliR = this.add.image(200, 260, 'RostroA').setInteractive().setScale(0.23);
         //SPRITE MARTIN
-        this.martin = this.add.sprite(550, 260, 'martin', 0).setScale(1);
-        this.martinR = this.add.image(550, 260, 'RostroM').setInteractive().setScale(0.35);
+        this.martin = this.add.sprite(570, 260, 'martin', 0).setScale(1);
+        this.martinR = this.add.image(570, 265, 'RostroM').setInteractive().setScale(0.35);
         //SPRITE MANUEL
         this.manuel = this.add.sprite(950, 260, 'manu', 0).setScale(0.8);
         this.manuelR = this.add.image(950, 270, 'RostroManu').setInteractive().setScale(0.28);
@@ -63,15 +62,14 @@ class Bootloader extends Phaser.Scene {
         this.martinTexto = this.add.text(50,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.manuelTexto = this.add.text(50,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.ciciTexto = this.add.text(50,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.fondo = this.add.image(750, 360, 'Fondo2');
+        this.fondo = this.add.image(750, 380, 'Fondo2').setScale(2.5);
         //CUADROS
-        this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
-        this.fondoBlanco = this.add.image(180, 260, 'FondoBlanco').setInteractive().setName("alheli").setScale(.35).setDepth(-1);
-        this.cuadro2 = this.add.image(550, 260, 'wooden').setInteractive().setName("martin");
+        this.cuadro = this.add.image(200, 260, 'wooden').setInteractive().setName("alheli");
+        this.cuadro2 = this.add.image(570, 260, 'wooden').setInteractive().setName("martin");
         this.cuadro3 = this.add.image(950, 260, 'wooden').setInteractive().setName("manuel");
         this.cuadro4 = this.add.image(1320, 260, 'wooden').setInteractive().setName("cici");
         //FONDOS
-        this.fondo.setScale(2.2);
+        //this.fondo.setScale(2.2);
         this.fondo.setDepth(-1);
 
         this.cuadro.setScale(0.3);
@@ -101,7 +99,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
         //this.alheli.anims.play('idle');
         this.alheli.setAlpha(0);
-        this.alheliNombre = this.add.image(180, 520, 'nombreAlhe').setScale(0.20);
+        this.alheliNombre = this.add.image(200, 520, 'nombreAlhe').setScale(0.20);
         
         //ANIMACIÓN MANUEL
         // this.manuel = this.add.sprite(500, 200, 'manu', 0);
@@ -121,7 +119,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rascar', frames: this.anims.generateFrameNames('martin', { prefix: 'rascar', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.martin.anims.play('rascar');
         this.martin.setAlpha(0);
-        this.martinNombre = this.add.image(560, 520, 'nombreM').setScale(0.20);
+        this.martinNombre = this.add.image(580, 520, 'nombreM').setScale(0.20);
 
         //ANIMACIÓN CICI
         // this.cici = this.add.sprite(800, 200, 'martin', 0);
@@ -149,7 +147,7 @@ class Bootloader extends Phaser.Scene {
                 {
                     this.alheliR.setAlpha(1).setScale(.28);
                     this.alheliNombre.setScale(.23);
-                    this.cuadro.setTint(0x4F33FF);
+                    this.cuadro.setTint(0xA3EC3F);
                     this.cuadro.setScale(0.35)
     
                     this.martin.setAlpha(0);
@@ -159,17 +157,19 @@ class Bootloader extends Phaser.Scene {
     
                     this.cici.setAlpha(0);
                     this.ciciR.setAlpha(1).setScale(.35);
+                    this.ciciNombre.setScale(.2);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
                 if(arreglo[i]=="this.martin")
                 {
                     this.martinR.setAlpha(1).setScale(.42);
+                    this.martinNombre.setScale(.23);
                     this.cuadro2.setTint(0x4F33FF);
                     this.cuadro2.setScale(0.35);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliR.setAlpha(1).setScale(.23);
                     this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
@@ -182,32 +182,37 @@ class Bootloader extends Phaser.Scene {
                 if(arreglo[i]=="this.manuel")
                 {
                     this.manuelR.setAlpha(1).setScale(.32);
-                    this.cuadro3.setTint(0x4F33FF);
+                    this.manuNombre.setScale(.23);
+                    this.cuadro3.setTint(0xFCB540);
                     this.cuadro3.setScale(0.35);
     
                     this.martin.setAlpha(0);
                     this.martinR.setAlpha(1).setScale(.35);
+                    this.martinNombre.setScale(.2);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
                     this.ciciR.setAlpha(1).setScale(.35);
+                    this.ciciNombre.setScale(.2);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
                 if(arreglo[i]=="this.cici")
                 {
                     this.ciciR.setAlpha(1).setScale(.4);
-                    this.cuadro4.setTint(0x4F33FF);
+                    this.ciciNombre.setScale(.23);
+                    this.cuadro4.setTint(0xFC40C6);
                     this.cuadro4.setScale(0.35);
     
                     this.manuel.setAlpha(0);
                     this.manuelR.setAlpha(1).setScale(.28);
+                    this.manuNombre.setScale(.2);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliR.setAlpha(1).setScale(.23);
                     this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
@@ -229,17 +234,19 @@ class Bootloader extends Phaser.Scene {
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.28);
                     this.alheliNombre.setScale(.23);
-                    this.cuadro.setTint(0x4F33FF);
+                    this.cuadro.setTint(0xA3EC3F);
                     this.cuadro.setScale(0.35);
                     this.alheli.anims.play('idle');
     
                     this.martin.setAlpha(0);
                     this.martinR.setAlpha(1).setScale(.35);
+                    this.martinNombre.setScale(.2);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
                     this.ciciR.setAlpha(1).setScale(.35);
+                    this.ciciNombre.setScale(.2);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
@@ -247,17 +254,19 @@ class Bootloader extends Phaser.Scene {
                 {
                     this.martin.setAlpha(0);
                     this.martinR.setAlpha(1).setScale(.42);
+                    this.martinNombre.setScale(.23);
                     this.cuadro2.setTint(0x4F33FF);
                     this.cuadro2.setScale(0.35);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliR.setAlpha(1).setScale(.23);
                     this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
     
                     this.manuel.setAlpha(0);
                     this.manuelR.setAlpha(1).setScale(.28);
+                    this.manuNombre.setScale(.2);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
                 }
@@ -265,16 +274,19 @@ class Bootloader extends Phaser.Scene {
                 {
                     this.manuel.setAlpha(0);
                     this.manuelR.setAlpha(1).setScale(.32);
-                    this.cuadro3.setTint(0x4F33FF);
+                    this.manuNombre.setScale(.23);
+                    this.cuadro3.setTint(0xFCB540);
                     this.cuadro3.setScale(0.35);
     
                     this.martin.setAlpha(0);
                     this.martinR.setAlpha(1).setScale(.35);
+                    this.martinNombre.setScale(.2);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
                     this.ciciR.setAlpha(1).setScale(.35);
+                    this.ciciNombre.setScale(.2);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
@@ -282,16 +294,18 @@ class Bootloader extends Phaser.Scene {
                 {
                     this.cici.setAlpha(0);
                     this.ciciR.setAlpha(1).setScale(.4);
-                    this.cuadro4.setTint(0x4F33FF);
+                    this.ciciNombre.setScale(.23);
+                    this.cuadro4.setTint(0xFC40C6);
                     this.cuadro4.setScale(0.35);
     
                     this.manuel.setAlpha(0);
                     this.manuelR.setAlpha(1).setScale(.28);
+                    this.manuNombre.setScale(.2);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliR.setAlpha(1).setScale(.23);
                     this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
