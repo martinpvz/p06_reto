@@ -24,6 +24,8 @@ class Bootloader extends Phaser.Scene {
     }
 
     create() {
+        //BANDERAS
+        this.seleccionado = false;
         this.alheli = this.add.sprite(180, 260, 'alhe', 0).setScale(0.8);
         this.alheliR = this.add.image(180, 260, 'RostroA').setInteractive().setScale(0.25);
 
@@ -37,6 +39,7 @@ class Bootloader extends Phaser.Scene {
         this.ciciR = this.add.image(1320, 260, 'RostroA').setInteractive().setScale(0.25);
 
         this.dir = this.add.text(50, 650, ('A para Izquierda - D para Derecha = ENTER seleccionar'), { font: '38px Arial Black' });
+        this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpe\n[B]Baile\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
 
         this.fondo = this.add.image(750, 360, 'Fondo2');
 
@@ -62,7 +65,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'baile', frames: this.anims.generateFrameNames('alhe', { prefix: 'baile0', suffix: '.png', start: 1, end: 8 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'golpe', frames: this.anims.generateFrameNames('alhe', { prefix: 'golpe0', suffix: '.png', start: 0, end: 6 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
-        this.alheli.anims.play('idle');
+        //this.alheli.anims.play('idle');
         this.alheli.setAlpha(0);
         
         //ANIMACIÓN MANUEL
@@ -98,164 +101,192 @@ class Bootloader extends Phaser.Scene {
 
         
         this.input.keyboard.addKey(teclado.KeyCodes.D).on('down', () => {
-            if(i==3){
-                i=0;
-            }else{
-                i+=1;
+            if(!this.seleccionado){
+                if(i==3){
+                    i=0;
+                }else{
+                    i+=1;
+                }
+                if(arreglo[i]=="this.alheli")
+                {
+                    this.alheli.setAlpha(1);
+                    this.alheliR.setAlpha(0);
+                    this.cuadro.setTint(0x4F33FF);
+                    this.cuadro.setScale(0.35)
+    
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1);
+                    this.cuadro2.clearTint();
+                    this.cuadro2.setScale(0.3);
+    
+                    this.cici.setAlpha(0);
+                    this.ciciR.setAlpha(1);
+                    this.cuadro4.clearTint();
+                    this.cuadro4.setScale(0.3);
+                }
+                if(arreglo[i]=="this.martin")
+                {
+                    this.martin.setAlpha(1);
+                    this.martinR.setAlpha(0);
+                    this.cuadro2.setTint(0x4F33FF);
+                    this.cuadro2.setScale(0.35);
+    
+                    this.alheli.setAlpha(0);
+                    this.alheliR.setAlpha(1);
+                    this.cuadro.clearTint();
+                    this.cuadro.setScale(0.3);
+    
+                    this.manuel.setAlpha(0);
+                    this.manuelR.setAlpha(1);
+                    this.cuadro3.clearTint();
+                    this.cuadro3.setScale(0.3);
+                }
+                if(arreglo[i]=="this.manuel")
+                {
+                    this.manuel.setAlpha(1);
+                    this.manuelR.setAlpha(0);
+                    this.cuadro3.setTint(0x4F33FF);
+                    this.cuadro3.setScale(0.35);
+    
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1);
+                    this.cuadro2.clearTint();
+                    this.cuadro2.setScale(0.3);
+    
+                    this.cici.setAlpha(0);
+                    this.ciciR.setAlpha(1);
+                    this.cuadro4.clearTint();
+                    this.cuadro4.setScale(0.3);
+                }
+                if(arreglo[i]=="this.cici")
+                {
+                    this.cici.setAlpha(1);
+                    this.ciciR.setAlpha(0);
+                    this.cuadro4.setTint(0x4F33FF);
+                    this.cuadro4.setScale(0.35);
+    
+                    this.manuel.setAlpha(0);
+                    this.manuelR.setAlpha(1);
+                    this.cuadro3.clearTint();
+                    this.cuadro3.setScale(0.3);
+    
+                    this.alheli.setAlpha(0);
+                    this.alheliR.setAlpha(1);
+                    this.cuadro.clearTint();
+                    this.cuadro.setScale(0.3);
+                }
             }
-            if(arreglo[i]=="this.alheli")
-            {
-                this.alheli.setAlpha(1);
-                this.alheliR.setAlpha(0);
-                this.cuadro.setTint(0x4F33FF);
-                this.cuadro.setScale(0.35)
 
-                this.martin.setAlpha(0);
-                this.martinR.setAlpha(1);
-                this.cuadro2.clearTint();
-                this.cuadro2.setScale(0.3);
-
-                this.cici.setAlpha(0);
-                this.ciciR.setAlpha(1);
-                this.cuadro4.clearTint();
-                this.cuadro4.setScale(0.3);
-            }
-            if(arreglo[i]=="this.martin")
-            {
-                this.martin.setAlpha(1);
-                this.martinR.setAlpha(0);
-                this.cuadro2.setTint(0x4F33FF);
-                this.cuadro2.setScale(0.35);
-
-                this.alheli.setAlpha(0);
-                this.alheliR.setAlpha(1);
-                this.cuadro.clearTint();
-                this.cuadro.setScale(0.3);
-
-                this.manuel.setAlpha(0);
-                this.manuelR.setAlpha(1);
-                this.cuadro3.clearTint();
-                this.cuadro3.setScale(0.3);
-            }
-            if(arreglo[i]=="this.manuel")
-            {
-                this.manuel.setAlpha(1);
-                this.manuelR.setAlpha(0);
-                this.cuadro3.setTint(0x4F33FF);
-                this.cuadro3.setScale(0.35);
-
-                this.martin.setAlpha(0);
-                this.martinR.setAlpha(1);
-                this.cuadro2.clearTint();
-                this.cuadro2.setScale(0.3);
-
-                this.cici.setAlpha(0);
-                this.ciciR.setAlpha(1);
-                this.cuadro4.clearTint();
-                this.cuadro4.setScale(0.3);
-            }
-            if(arreglo[i]=="this.cici")
-            {
-                this.cici.setAlpha(1);
-                this.ciciR.setAlpha(0);
-                this.cuadro4.setTint(0x4F33FF);
-                this.cuadro4.setScale(0.35);
-
-                this.manuel.setAlpha(0);
-                this.manuelR.setAlpha(1);
-                this.cuadro3.clearTint();
-                this.cuadro3.setScale(0.3);
-
-                this.alheli.setAlpha(0);
-                this.alheliR.setAlpha(1);
-                this.cuadro.clearTint();
-                this.cuadro.setScale(0.3);
-            }
         });
 
         this.input.keyboard.addKey(teclado.KeyCodes.A).on('down', () => {
-            if(i==0){
-                i=3;
-            }else{
-                i-=1;
+            if(!this.seleccionado){
+                if(i==0){
+                    i=3;
+                }else{
+                    i-=1;
+                }
+                if(arreglo[i]=="this.alheli")
+                {
+                    this.alheli.setAlpha(1);
+                    this.alheliR.setAlpha(0);
+                    this.cuadro.setTint(0x4F33FF);
+                    this.cuadro.setScale(0.35);
+                    this.alheli.anims.play('idle');
+    
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1);
+                    this.cuadro2.clearTint();
+                    this.cuadro2.setScale(0.3);
+    
+                    this.cici.setAlpha(0);
+                    this.ciciR.setAlpha(1);
+                    this.cuadro4.clearTint();
+                    this.cuadro4.setScale(0.3);
+                }
+                if(arreglo[i]=="this.martin")
+                {
+                    this.martin.setAlpha(1);
+                    this.martinR.setAlpha(0);
+                    this.cuadro2.setTint(0x4F33FF);
+                    this.cuadro2.setScale(0.35);
+    
+                    this.alheli.setAlpha(0);
+                    this.alheliR.setAlpha(1);
+                    this.cuadro.clearTint();
+                    this.cuadro.setScale(0.3);
+    
+                    this.manuel.setAlpha(0);
+                    this.manuelR.setAlpha(1);
+                    this.cuadro3.clearTint();
+                    this.cuadro3.setScale(0.3);
+                }
+                if(arreglo[i]=="this.manuel")
+                {
+                    this.manuel.setAlpha(1);
+                    this.manuelR.setAlpha(0);
+                    this.cuadro3.setTint(0x4F33FF);
+                    this.cuadro3.setScale(0.35);
+    
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1);
+                    this.cuadro2.clearTint();
+                    this.cuadro2.setScale(0.3);
+    
+                    this.cici.setAlpha(0);
+                    this.ciciR.setAlpha(1);
+                    this.cuadro4.clearTint();
+                    this.cuadro4.setScale(0.3);
+                }
+                if(arreglo[i]=="this.cici")
+                {
+                    this.cici.setAlpha(1);
+                    this.ciciR.setAlpha(0);
+                    this.cuadro4.setTint(0x4F33FF);
+                    this.cuadro4.setScale(0.35);
+    
+                    this.manuel.setAlpha(0);
+                    this.manuelR.setAlpha(1);
+                    this.cuadro3.clearTint();
+                    this.cuadro3.setScale(0.3);
+    
+                    this.alheli.setAlpha(0);
+                    this.alheliR.setAlpha(1);
+                    this.cuadro.clearTint();
+                    this.cuadro.setScale(0.3);
+                }
             }
-            if(arreglo[i]=="this.alheli")
-            {
-                this.alheli.setAlpha(1);
-                this.alheliR.setAlpha(0);
-                this.cuadro.setTint(0x4F33FF);
-                this.cuadro.setScale(0.35)
 
-                this.martin.setAlpha(0);
-                this.martinR.setAlpha(1);
-                this.cuadro2.clearTint();
-                this.cuadro2.setScale(0.3);
-
-                this.cici.setAlpha(0);
-                this.ciciR.setAlpha(1);
-                this.cuadro4.clearTint();
-                this.cuadro4.setScale(0.3);
-            }
-            if(arreglo[i]=="this.martin")
-            {
-                this.martin.setAlpha(1);
-                this.martinR.setAlpha(0);
-                this.cuadro2.setTint(0x4F33FF);
-                this.cuadro2.setScale(0.35);
-
-                this.alheli.setAlpha(0);
-                this.alheliR.setAlpha(1);
-                this.cuadro.clearTint();
-                this.cuadro.setScale(0.3);
-
-                this.manuel.setAlpha(0);
-                this.manuelR.setAlpha(1);
-                this.cuadro3.clearTint();
-                this.cuadro3.setScale(0.3);
-            }
-            if(arreglo[i]=="this.manuel")
-            {
-                this.manuel.setAlpha(1);
-                this.manuelR.setAlpha(0);
-                this.cuadro3.setTint(0x4F33FF);
-                this.cuadro3.setScale(0.35);
-
-                this.martin.setAlpha(0);
-                this.martinR.setAlpha(1);
-                this.cuadro2.clearTint();
-                this.cuadro2.setScale(0.3);
-
-                this.cici.setAlpha(0);
-                this.ciciR.setAlpha(1);
-                this.cuadro4.clearTint();
-                this.cuadro4.setScale(0.3);
-            }
-            if(arreglo[i]=="this.cici")
-            {
-                this.cici.setAlpha(1);
-                this.ciciR.setAlpha(0);
-                this.cuadro4.setTint(0x4F33FF);
-                this.cuadro4.setScale(0.35);
-
-                this.manuel.setAlpha(0);
-                this.manuelR.setAlpha(1);
-                this.cuadro3.clearTint();
-                this.cuadro3.setScale(0.3);
-
-                this.alheli.setAlpha(0);
-                this.alheliR.setAlpha(1);
-                this.cuadro.clearTint();
-                this.cuadro.setScale(0.3);
-            }
         });
 
         //AQUI IRA PA SELECCIONAR PERSONAJE presionando ENTER
-        // this.input.keyboard.addKey(teclado.KeyCodes."CodigoEnter").on('down', () => {
-        //     if(i==0){
-        //         i=3;
-        //     }
-        // });
+        this.input.keyboard.addKey(teclado.KeyCodes.ENTER).on('down', () => {
+            console.log("Entró a enter");
+            this.seleccionado = true;
+            if(arreglo[i]=="this.alheli")
+            {
+                this.alheTexto.setAlpha(1).setDepth(20);
+            }
+            if(arreglo[i]=="this.martin")
+            {
+                this.movAlhe.setAlpha(1).setDepth(20);
+            }
+            if(arreglo[i]=="this.manuel")
+            {
+                this.movAlhe.setAlpha(1).setDepth(20);
+            }
+            if(arreglo[i]=="this.cici")
+            {
+                this.movAlhe.setAlpha(1).setDepth(20);
+            }            
+        });
 
+        //ESCAPE PARA SALIR DE SELECCION
+        this.input.keyboard.addKey(teclado.KeyCodes.ESC).on('down', () => {
+            console.log("Entró a escape");
+            this.seleccionado = false;
+            this.movAlhe.setAlpha(0);           
+        });
 
         // this.alheliR.on(eventos.POINTER_OVER, function() {
         //     this.setAlpha(0);
