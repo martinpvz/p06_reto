@@ -136,13 +136,12 @@ class Bootloader extends Phaser.Scene {
                 this.pop.play()
                 if(arreglo[i]=="this.alheli")
                 {
-                    this.alheli.setAlpha(1);
-                    this.alheliR.setAlpha(0);
+                    this.alheliR.setAlpha(1).setScale(.28);
                     this.cuadro.setTint(0x4F33FF);
                     this.cuadro.setScale(0.35)
     
                     this.martin.setAlpha(0);
-                    this.martinR.setAlpha(1);
+                    this.martinR.setAlpha(1).setScale(.35);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
@@ -153,13 +152,13 @@ class Bootloader extends Phaser.Scene {
                 }
                 if(arreglo[i]=="this.martin")
                 {
-                    this.martin.setAlpha(1);
-                    this.martinR.setAlpha(0);
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1).setScale(.42);
                     this.cuadro2.setTint(0x4F33FF);
                     this.cuadro2.setScale(0.35);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1);
+                    this.alheliR.setAlpha(1).setScale(.25);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
     
@@ -176,7 +175,7 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro3.setScale(0.35);
     
                     this.martin.setAlpha(0);
-                    this.martinR.setAlpha(1);
+                    this.martinR.setAlpha(1).setScale(.35);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
@@ -198,7 +197,7 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro3.setScale(0.3);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1);
+                    this.alheliR.setAlpha(1).setScale(.25);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
                 }
@@ -216,14 +215,14 @@ class Bootloader extends Phaser.Scene {
                 this.pop.play()
                 if(arreglo[i]=="this.alheli")
                 {
-                    this.alheli.setAlpha(1);
-                    this.alheliR.setAlpha(0);
+                    this.alheli.setAlpha(0);
+                    this.alheliR.setAlpha(1).setScale(.28);
                     this.cuadro.setTint(0x4F33FF);
                     this.cuadro.setScale(0.35);
                     this.alheli.anims.play('idle');
     
                     this.martin.setAlpha(0);
-                    this.martinR.setAlpha(1);
+                    this.martinR.setAlpha(1).setScale(.35);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
@@ -234,13 +233,13 @@ class Bootloader extends Phaser.Scene {
                 }
                 if(arreglo[i]=="this.martin")
                 {
-                    this.martin.setAlpha(1);
-                    this.martinR.setAlpha(0);
+                    this.martin.setAlpha(0);
+                    this.martinR.setAlpha(1).setScale(.42);
                     this.cuadro2.setTint(0x4F33FF);
                     this.cuadro2.setScale(0.35);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1);
+                    this.alheliR.setAlpha(1).setScale(.25);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
     
@@ -257,7 +256,7 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro3.setScale(0.35);
     
                     this.martin.setAlpha(0);
-                    this.martinR.setAlpha(1);
+                    this.martinR.setAlpha(1).setScale(.35);
                     this.cuadro2.clearTint();
                     this.cuadro2.setScale(0.3);
     
@@ -279,7 +278,7 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro3.setScale(0.3);
     
                     this.alheli.setAlpha(0);
-                    this.alheliR.setAlpha(1);
+                    this.alheliR.setAlpha(1).setScale(.25);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
                 }
@@ -295,6 +294,8 @@ class Bootloader extends Phaser.Scene {
             this.seleccionado = true;
             if(arreglo[i]=="this.alheli")
             {
+                this.alheliR.setAlpha(0);
+                this.alheli.setAlpha(1);
                 this.alheTexto.setAlpha(1);
                 this.ciciSong.stop()
                 this.martinSong.stop()
@@ -327,6 +328,8 @@ class Bootloader extends Phaser.Scene {
         this.input.keyboard.addKey(teclado.KeyCodes.ESC).on('down', () => {
             console.log("Entró a escape");
             this.seleccionado = false;
+            this.alheli.setAlpha(0);
+            this.alheliR.setAlpha(1);
             this.alheTexto.setAlpha(0);
             this.alheli.anims.play('idle');
             this.martinTexto.setAlpha(0);
@@ -342,7 +345,7 @@ class Bootloader extends Phaser.Scene {
             this.principal.play()
         });
 
-        //FUNCIONALIDAD CON TECLAS
+        //FUNCIONALIDAD CON TECLAS ALHELI
         this.input.keyboard.addKey(teclado.KeyCodes.G).on('down', () => {
             if(this.seleccionado){
                 this.alheli.anims.play('golpe');
@@ -357,7 +360,25 @@ class Bootloader extends Phaser.Scene {
             if(this.seleccionado){
                 this.alheli.anims.play('rodillas');
             }
+        }); 
+
+        //FUNCIONALIDAD CON TECLAS MARTIN
+        this.input.keyboard.addKey(teclado.KeyCodes.J).on('down', () => {
+            if(this.seleccionado){
+                this.martin.anims.play('golpeM');
+            }
+        });   
+        this.input.keyboard.addKey(teclado.KeyCodes.K).on('down', () => {
+            if(this.seleccionado){
+                this.martin.anims.play('defensa');
+            }
+        }); 
+        this.input.keyboard.addKey(teclado.KeyCodes.L).on('down', () => {
+            if(this.seleccionado){
+                this.martin.anims.play('gancho');
+            }
         });      
+   
 
         // this.alheliR.on(eventos.POINTER_OVER, function() {
         //     this.setAlpha(0);
