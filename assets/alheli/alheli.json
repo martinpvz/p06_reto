@@ -1,0 +1,671 @@
+{
+	"textures": [
+		{
+			"image": "alheli.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 910,
+				"h": 1894
+			},
+			"scale": 0.1,
+			"frames": [
+				{
+					"filename": "alhe1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 141,
+						"h": 356
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 141,
+						"h": 356
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 141,
+						"h": 356
+					}
+				},
+				{
+					"filename": "alhe2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 376
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 376
+					},
+					"frame": {
+						"x": 144,
+						"y": 1,
+						"w": 128,
+						"h": 376
+					}
+				},
+				{
+					"filename": "alhe3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 115,
+						"h": 382
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 115,
+						"h": 382
+					},
+					"frame": {
+						"x": 274,
+						"y": 1,
+						"w": 115,
+						"h": 382
+					}
+				},
+				{
+					"filename": "alhe4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 118,
+						"h": 381
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 118,
+						"h": 381
+					},
+					"frame": {
+						"x": 391,
+						"y": 1,
+						"w": 118,
+						"h": 381
+					}
+				},
+				{
+					"filename": "alhe5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 123,
+						"h": 373
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 123,
+						"h": 373
+					},
+					"frame": {
+						"x": 511,
+						"y": 1,
+						"w": 123,
+						"h": 373
+					}
+				},
+				{
+					"filename": "alhe6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 115,
+						"h": 382
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 115,
+						"h": 382
+					},
+					"frame": {
+						"x": 636,
+						"y": 1,
+						"w": 115,
+						"h": 382
+					}
+				},
+				{
+					"filename": "alhe7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 376
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 376
+					},
+					"frame": {
+						"x": 753,
+						"y": 1,
+						"w": 128,
+						"h": 376
+					}
+				},
+				{
+					"filename": "baile01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 144,
+						"h": 339
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 144,
+						"h": 339
+					},
+					"frame": {
+						"x": 1,
+						"y": 385,
+						"w": 144,
+						"h": 339
+					}
+				},
+				{
+					"filename": "baile02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 201,
+						"h": 339
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 201,
+						"h": 339
+					},
+					"frame": {
+						"x": 147,
+						"y": 385,
+						"w": 201,
+						"h": 339
+					}
+				},
+				{
+					"filename": "baile03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 214,
+						"h": 371
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 214,
+						"h": 371
+					},
+					"frame": {
+						"x": 350,
+						"y": 385,
+						"w": 214,
+						"h": 371
+					}
+				},
+				{
+					"filename": "baile04.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 201,
+						"h": 339
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 201,
+						"h": 339
+					},
+					"frame": {
+						"x": 566,
+						"y": 385,
+						"w": 201,
+						"h": 339
+					}
+				},
+				{
+					"filename": "baile05.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 144,
+						"h": 339
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 144,
+						"h": 339
+					},
+					"frame": {
+						"x": 1,
+						"y": 758,
+						"w": 144,
+						"h": 339
+					}
+				},
+				{
+					"filename": "baile06.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 166,
+						"h": 343
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 166,
+						"h": 343
+					},
+					"frame": {
+						"x": 147,
+						"y": 758,
+						"w": 166,
+						"h": 343
+					}
+				},
+				{
+					"filename": "baile07.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 195,
+						"h": 334
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 195,
+						"h": 334
+					},
+					"frame": {
+						"x": 315,
+						"y": 758,
+						"w": 195,
+						"h": 334
+					}
+				},
+				{
+					"filename": "baile08.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 213,
+						"h": 370
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 213,
+						"h": 370
+					},
+					"frame": {
+						"x": 512,
+						"y": 758,
+						"w": 213,
+						"h": 370
+					}
+				},
+				{
+					"filename": "golpe00.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 325
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 325
+					},
+					"frame": {
+						"x": 727,
+						"y": 758,
+						"w": 86,
+						"h": 325
+					}
+				},
+				{
+					"filename": "golpe01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 94,
+						"h": 350
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 94,
+						"h": 350
+					},
+					"frame": {
+						"x": 815,
+						"y": 758,
+						"w": 94,
+						"h": 350
+					}
+				},
+				{
+					"filename": "golpe02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 359
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 359
+					},
+					"frame": {
+						"x": 1,
+						"y": 1130,
+						"w": 104,
+						"h": 359
+					}
+				},
+				{
+					"filename": "golpe03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 125,
+						"h": 376
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 125,
+						"h": 376
+					},
+					"frame": {
+						"x": 107,
+						"y": 1130,
+						"w": 125,
+						"h": 376
+					}
+				},
+				{
+					"filename": "golpe04.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 151,
+						"h": 367
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 151,
+						"h": 367
+					},
+					"frame": {
+						"x": 234,
+						"y": 1130,
+						"w": 151,
+						"h": 367
+					}
+				},
+				{
+					"filename": "golpe05.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 125,
+						"h": 376
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 125,
+						"h": 376
+					},
+					"frame": {
+						"x": 387,
+						"y": 1130,
+						"w": 125,
+						"h": 376
+					}
+				},
+				{
+					"filename": "golpe06.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 359
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 359
+					},
+					"frame": {
+						"x": 514,
+						"y": 1130,
+						"w": 104,
+						"h": 359
+					}
+				},
+				{
+					"filename": "rodillas01.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 364
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 364
+					},
+					"frame": {
+						"x": 620,
+						"y": 1130,
+						"w": 104,
+						"h": 364
+					}
+				},
+				{
+					"filename": "rodillas02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 117,
+						"h": 354
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 117,
+						"h": 354
+					},
+					"frame": {
+						"x": 726,
+						"y": 1130,
+						"w": 117,
+						"h": 354
+					}
+				},
+				{
+					"filename": "rodillas03.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 140,
+						"h": 365
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 140,
+						"h": 365
+					},
+					"frame": {
+						"x": 1,
+						"y": 1508,
+						"w": 140,
+						"h": 365
+					}
+				},
+				{
+					"filename": "rodillas04.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 117,
+						"h": 354
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 117,
+						"h": 354
+					},
+					"frame": {
+						"x": 143,
+						"y": 1508,
+						"w": 117,
+						"h": 354
+					}
+				},
+				{
+					"filename": "rodillas05.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 104,
+						"h": 364
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 104,
+						"h": 364
+					},
+					"frame": {
+						"x": 262,
+						"y": 1508,
+						"w": 104,
+						"h": 364
+					}
+				},
+				{
+					"filename": "rodillas06.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 121,
+						"h": 384
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 121,
+						"h": 384
+					},
+					"frame": {
+						"x": 368,
+						"y": 1508,
+						"w": 121,
+						"h": 384
+					}
+				},
+				{
+					"filename": "rodillas07.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 142,
+						"h": 383
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 142,
+						"h": 383
+					},
+					"frame": {
+						"x": 491,
+						"y": 1508,
+						"w": 142,
+						"h": 383
+					}
+				},
+				{
+					"filename": "rodillas08.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 126,
+						"h": 385
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 126,
+						"h": 385
+					},
+					"frame": {
+						"x": 635,
+						"y": 1508,
+						"w": 126,
+						"h": 385
+					}
+				},
+				{
+					"filename": "rodillas09.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 121,
+						"h": 384
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 121,
+						"h": 384
+					},
+					"frame": {
+						"x": 763,
+						"y": 1508,
+						"w": 121,
+						"h": 384
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b5be8fa03f1c2fbaa262d4cb4996cd34:caac369797ec2dd37fcaee4f987d9e97:84a61758bb9beb29e84700cfb2e6087f$"
+	}
+}

@@ -1,0 +1,47 @@
+{
+    "frames": [
+        {
+            "filename": "cici1",
+            "frame": {
+                "w": 773,
+                "h": 3299,
+                "x": 0,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cici3",
+            "frame": {
+                "w": 1458,
+                "h": 2921,
+                "x": 773,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cici2",
+            "frame": {
+                "w": 1039,
+                "h": 3197,
+                "x": 2231,
+                "y": 0
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
