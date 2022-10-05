@@ -1,0 +1,49 @@
+{
+    "anims": [
+        {
+            "key": "mov2_Alhe",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 11,
+            "frames": [
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_5"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_4"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_3"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_41"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_51"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_2"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_1"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_6"
+                },
+                {
+                    "key": "alheMov2",
+                    "frame": "mov2_21"
+                }
+
+            ]
+        }
+    ]
+}
