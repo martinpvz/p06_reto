@@ -14,6 +14,7 @@ class Bootloader extends Phaser.Scene {
         this.load.path = './assets/';
         this.load.image('Fondo2', 'Fondo2.png');
         this.load.image('wooden', 'woodframe.png');
+        this.load.image('FondoBlanco','fondoBlanco.png')
         this.load.audio('principal', ['./principal.mp3']);
         this.load.audio('martinSong', ['./martin.mp3']);
         this.load.audio('alheSong', ['./alheli.mp3']);
@@ -65,6 +66,7 @@ class Bootloader extends Phaser.Scene {
         this.fondo = this.add.image(750, 360, 'Fondo2');
         //CUADROS
         this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
+        this.fondoBlanco = this.add.image(180, 260, 'FondoBlanco').setInteractive().setName("alheli").setScale(.35).setDepth(-1);
         this.cuadro2 = this.add.image(550, 260, 'wooden').setInteractive().setName("martin");
         this.cuadro3 = this.add.image(950, 260, 'wooden').setInteractive().setName("manuel");
         this.cuadro4 = this.add.image(1320, 260, 'wooden').setInteractive().setName("cici");
