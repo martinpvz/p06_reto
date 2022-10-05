@@ -21,8 +21,8 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('principal', ['./principal.mp3']);
         this.load.audio('martinSong', ['./martin.mp3']);
         this.load.audio('alheSong', ['./alheli.mp3']);
-        this.load.audio('ciciSong', ['./citlalli.mp3']);
-        this.load.audio('manuelSong', ['./manuela.mp3']);
+        this.load.audio('ciciSong', ['./manuela.mp3']);
+        this.load.audio('manuelSong', ['./citlalli.mp3']);
         this.load.audio('pop', ['./pop.mp3']);
         this.load.audio('select', ['./select.mp3']);
         //ALHELÍ
@@ -85,10 +85,10 @@ class Bootloader extends Phaser.Scene {
         const teclado = Phaser.Input.Keyboard;
 
         //MUSIQUITA
-        this.principal = this.sound.add('principal', { loop: true, volume: 0.2 });
-        this.martinSong = this.sound.add('martinSong', { loop: true, volume: 0.2 });
-        this.alheSong = this.sound.add('alheSong', { loop: true, volume: 0.2 });
-        this.ciciSong = this.sound.add('ciciSong', { loop: true, volume: 0.2 });
+        this.principal = this.sound.add('principal', { loop: true, volume: 0.4 });
+        this.martinSong = this.sound.add('martinSong', { loop: true, volume: 0.5 });
+        this.alheSong = this.sound.add('alheSong', { loop: true, volume: 0.4 });
+        this.ciciSong = this.sound.add('ciciSong', { loop: true, volume: 0.3 });
         this.manuelSong = this.sound.add('manuelSong', { loop: true, volume: 0.2 });
         this.pop = this.sound.add('pop', { loop: false, volume: 0.5 });
         this.select = this.sound.add('select', { loop: false, volume: 0.5 });
