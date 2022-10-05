@@ -15,6 +15,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image('Fondo2', 'fondo.jpg');
         this.load.image('wooden', 'rockframe.png');
         this.load.image('selecciona', 'selecciona.png');
+        this.load.image('control', 'control.png');
         this.load.audio('principal', ['./principal.mp3']);
         this.load.audio('martinSong', ['./martin.mp3']);
         this.load.audio('alheSong', ['./alheli.mp3']);
@@ -43,6 +44,7 @@ class Bootloader extends Phaser.Scene {
 
     create() {
         this.selecciona =  this.add.image(750, 40, 'selecciona').setScale(0.9).setDepth(10);
+        this.control =  this.add.image(750, 660, 'control').setScale(0.5).setDepth(10);
         //BANDERAS
         this.seleccionado = false;
 
@@ -61,7 +63,7 @@ class Bootloader extends Phaser.Scene {
         this.ciciR = this.add.image(1350, 260, 'RostroC').setInteractive().setScale(0.35);
 
         //TEXTOS NOMBRES Y DIRECCIONES
-        this.dir = this.add.text(400, 700, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
+        //this.dir = this.add.text(400, 700, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
         this.alheTexto = this.add.text(65,575,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
         this.movFondo =  this.add.image(200, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
