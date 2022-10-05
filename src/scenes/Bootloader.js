@@ -12,7 +12,7 @@ class Bootloader extends Phaser.Scene {
     preload() {
         //ESCENARIO
         this.load.path = './assets/';
-        this.load.image('Fondo2', 'fondo.jpg');
+        this.load.image('Fondo2', 'fondo.png');
         this.load.image('rock', 'rockframe.png');
         this.load.image('selecciona', 'selecciona.png');
         this.load.image('control', 'control.png');
@@ -45,7 +45,7 @@ class Bootloader extends Phaser.Scene {
 
     create() {
         //FONDO
-        this.fondo = this.add.image(750, 350, 'Fondo2').setScale(3).setDepth(-1);
+        this.fondo = this.add.image(750, 350, 'Fondo2').setScale(1.25).setDepth(-1);
         this.selecciona =  this.add.image(750, 25, 'selecciona').setScale(0.7).setDepth(10);
         this.control =  this.add.image(780, 703, 'control').setScale(0.12).setDepth(10);
         //BANDERAS
@@ -64,7 +64,7 @@ class Bootloader extends Phaser.Scene {
         this.ciciR = this.add.image(1350, 263, 'RostroC').setInteractive().setScale(0.35);
         //TEXTOS NOMBRES Y DIRECCIONES
         //this.dir = this.add.text(400, 700, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
-        this.alheTexto = this.add.text(65,575,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.alheTexto = this.add.text(65,575,'Pruebe los movimientos:\n[G]Puño\n[B]Bailar\n[R]Rodillas arriba',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
         this.movFondo =  this.add.image(200, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
         this.martinTexto = this.add.text(440,575,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
@@ -99,7 +99,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'idle', frames: this.anims.generateFrameNames('alhe', { prefix: 'alhe', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'baile', frames: this.anims.generateFrameNames('alhe', { prefix: 'baile0', suffix: '.png', start: 1, end: 8 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'golpe', frames: this.anims.generateFrameNames('alhe', { prefix: 'golpe0', suffix: '.png', start: 0, end: 6 }), repeat: -1, frameRate: 8 });
-        this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 10 });
         this.alheli.anims.play('idle');
         this.alheli.setAlpha(0);
         this.alheliNombre = this.add.image(200, 520, 'nombreAlhe').setScale(0.20);
@@ -115,7 +115,7 @@ class Bootloader extends Phaser.Scene {
 
         //ANIMACIÓN MARTÍN
         this.anims.create({ key: 'defensa', frames: this.anims.generateFrameNames('martin', { prefix: 'defensa0', suffix: '.png', start: 1, end: 13 }), repeat: -1, frameRate: 8 });
-        this.anims.create({ key: 'gancho', frames: this.anims.generateFrameNames('martin', { prefix: 'gancho0', suffix: '.png', start: 1, end: 16 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'gancho', frames: this.anims.generateFrameNames('martin', { prefix: 'gancho0', suffix: '.png', start: 1, end: 16 }), repeat: -1, frameRate: 9 });
         this.anims.create({ key: 'golpeM', frames: this.anims.generateFrameNames('martin', { prefix: 'golpe0', suffix: '.png', start: 1, end: 12 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'rascar', frames: this.anims.generateFrameNames('martin', { prefix: 'rascar', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.martin.anims.play('rascar');
