@@ -146,13 +146,12 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
-                    this.ciciR.setAlpha(1);
+                    this.ciciR.setAlpha(1).setScale(.35);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
                 if(arreglo[i]=="this.martin")
                 {
-                    this.martin.setAlpha(0);
                     this.martinR.setAlpha(1).setScale(.42);
                     this.cuadro2.setTint(0x4F33FF);
                     this.cuadro2.setScale(0.35);
@@ -163,14 +162,13 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro.setScale(0.3);
     
                     this.manuel.setAlpha(0);
-                    this.manuelR.setAlpha(1);
+                    this.manuelR.setAlpha(1).setScale(.28);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
                 }
                 if(arreglo[i]=="this.manuel")
                 {
-                    this.manuel.setAlpha(1);
-                    this.manuelR.setAlpha(0);
+                    this.manuelR.setAlpha(1).setScale(.32);
                     this.cuadro3.setTint(0x4F33FF);
                     this.cuadro3.setScale(0.35);
     
@@ -180,19 +178,18 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
-                    this.ciciR.setAlpha(1);
+                    this.ciciR.setAlpha(1).setScale(.35);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
                 if(arreglo[i]=="this.cici")
                 {
-                    this.cici.setAlpha(1);
-                    this.ciciR.setAlpha(0);
+                    this.ciciR.setAlpha(1).setScale(.4);
                     this.cuadro4.setTint(0x4F33FF);
                     this.cuadro4.setScale(0.35);
     
                     this.manuel.setAlpha(0);
-                    this.manuelR.setAlpha(1);
+                    this.manuelR.setAlpha(1).setScale(.28);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
     
@@ -227,7 +224,7 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
-                    this.ciciR.setAlpha(1);
+                    this.ciciR.setAlpha(1).setScale(.35);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
@@ -244,14 +241,14 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro.setScale(0.3);
     
                     this.manuel.setAlpha(0);
-                    this.manuelR.setAlpha(1);
+                    this.manuelR.setAlpha(1).setScale(.28);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
                 }
                 if(arreglo[i]=="this.manuel")
                 {
-                    this.manuel.setAlpha(1);
-                    this.manuelR.setAlpha(0);
+                    this.manuel.setAlpha(0);
+                    this.manuelR.setAlpha(1).setScale(.32);
                     this.cuadro3.setTint(0x4F33FF);
                     this.cuadro3.setScale(0.35);
     
@@ -261,19 +258,19 @@ class Bootloader extends Phaser.Scene {
                     this.cuadro2.setScale(0.3);
     
                     this.cici.setAlpha(0);
-                    this.ciciR.setAlpha(1);
+                    this.ciciR.setAlpha(1).setScale(.35);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
                 }
                 if(arreglo[i]=="this.cici")
                 {
-                    this.cici.setAlpha(1);
-                    this.ciciR.setAlpha(0);
+                    this.cici.setAlpha(0);
+                    this.ciciR.setAlpha(1).setScale(.5);
                     this.cuadro4.setTint(0x4F33FF);
                     this.cuadro4.setScale(0.35);
     
                     this.manuel.setAlpha(0);
-                    this.manuelR.setAlpha(1);
+                    this.manuelR.setAlpha(1).setScale(.28);
                     this.cuadro3.clearTint();
                     this.cuadro3.setScale(0.3);
     
@@ -303,6 +300,8 @@ class Bootloader extends Phaser.Scene {
             }
             if(arreglo[i]=="this.martin")
             {
+                this.martinR.setAlpha(0);
+                this.martin.setAlpha(1);
                 this.martinTexto.setAlpha(1);
                 this.manuelSong.stop()
                 this.alheSong.stop()
@@ -310,6 +309,8 @@ class Bootloader extends Phaser.Scene {
             }
             if(arreglo[i]=="this.manuel")
             {
+                this.manuelR.setAlpha(0);
+                this.manuel.setAlpha(1);
                 this.manuelTexto.setAlpha(1);
                 this.ciciSong.stop()
                 this.martinSong.stop()
@@ -317,6 +318,8 @@ class Bootloader extends Phaser.Scene {
             }
             if(arreglo[i]=="this.cici")
             {
+                this.ciciR.setAlpha(0);
+                this.cici.setAlpha(1);
                 this.ciciTexto.setAlpha(1);
                 this.alheSong.stop()
                 this.manuelSong.stop()
@@ -328,16 +331,23 @@ class Bootloader extends Phaser.Scene {
         this.input.keyboard.addKey(teclado.KeyCodes.ESC).on('down', () => {
             console.log("Entró a escape");
             this.seleccionado = false;
+            //ALHELI CONFIGURACIÓN
             this.alheli.setAlpha(0);
             this.alheliR.setAlpha(1);
             this.alheTexto.setAlpha(0);
             this.alheli.anims.play('idle');
+            //MARTIN CONFIGURACIÓN
+            this.martin.setAlpha(0);
+            this.martinR.setAlpha(1);
             this.martinTexto.setAlpha(0);
             this.martin.anims.play('rascar');
+            //MANUEL CONFIGURACIÓN
+            this.manuel.setAlpha(0);
+            this.manuelR.setAlpha(1);
             this.manuelTexto.setAlpha(0);
             this.manuel.anims.play('manu');
             this.ciciTexto.setAlpha(0);
-
+            
             this.alheSong.stop()
             this.manuelSong.stop()
             this.ciciSong.stop()
@@ -378,6 +388,23 @@ class Bootloader extends Phaser.Scene {
                 this.martin.anims.play('gancho');
             }
         });      
+
+        //FUNCIONALIDAD CON TECLAS MANUEL
+        this.input.keyboard.addKey(teclado.KeyCodes.T).on('down', () => {
+            if(this.seleccionado){
+                this.manuel.anims.play('fuerte');
+            }
+        });   
+        this.input.keyboard.addKey(teclado.KeyCodes.Y).on('down', () => {
+            if(this.seleccionado){
+                this.manuel.anims.play('amen');
+            }
+        }); 
+        this.input.keyboard.addKey(teclado.KeyCodes.U).on('down', () => {
+            if(this.seleccionado){
+                this.manuel.anims.play('patada');
+            }
+        });   
    
 
         // this.alheliR.on(eventos.POINTER_OVER, function() {
