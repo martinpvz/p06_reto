@@ -10,37 +10,45 @@ class Bootloader extends Phaser.Scene {
     }
 
     preload() {
+        //ESCENARIO
         this.load.path = './assets/';
         this.load.image('Fondo2', 'Fondo2.png');
         this.load.image('wooden', 'woodframe.png');
-        this.load.image('RostroA', 'alheli/alhe_rostro.png');
         //ALHELÍ
         this.load.atlas('alhe', 'alheli/alheli.png', 'alheli/alheli.json');
+        this.load.image('RostroA', 'alheli/alhe_rostro.png');
         //MANUEL
         this.load.atlas('manu', 'manuel/manuel.png', 'manuel/manuel.json');
+        this.load.image('RostroManu', 'manuel/manu_rostro.png');
         //MARTÍN
         this.load.atlas('martin', 'martin/martin.png', 'martin/martin.json');
+        this.load.image('RostroM', 'martin/martin_rostro.png');
         //CITLALLI
+        this.load.image('RostroC', 'citlalli/cici_rostro.png');
     }
 
     create() {
         //BANDERAS
         this.seleccionado = false;
+
+        //AÑADIR SPRITES
         this.alheli = this.add.sprite(180, 260, 'alhe', 0).setScale(0.8);
         this.alheliR = this.add.image(180, 260, 'RostroA').setInteractive().setScale(0.25);
 
         this.martin = this.add.sprite(550, 260, 'martin', 0).setScale(1);
-        this.martinR = this.add.image(550, 260, 'RostroA').setInteractive().setScale(0.25);
+        this.martinR = this.add.image(550, 260, 'RostroM').setInteractive().setScale(0.35);
 
         this.manuel = this.add.sprite(950, 260, 'manu', 0).setScale(0.8);
-        this.manuelR = this.add.image(950, 260, 'RostroA').setInteractive().setScale(0.25);
+        this.manuelR = this.add.image(950, 270, 'RostroManu').setInteractive().setScale(0.28);
 
         this.cici = this.add.sprite(1320, 260, 'manu', 0).setScale(0.8);
-        this.ciciR = this.add.image(1320, 260, 'RostroA').setInteractive().setScale(0.25);
+        this.ciciR = this.add.image(1350, 260, 'RostroC').setInteractive().setScale(0.35);
 
         this.dir = this.add.text(50, 650, ('A para Izquierda - D para Derecha = ENTER seleccionar'), { font: '38px Arial Black' });
-        this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpe\n[B]Baile\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-
+        this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.martinTexto = this.add.text(50,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.manuelTexto = this.add.text(50,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.ciciTexto = this.add.text(50,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.fondo = this.add.image(750, 360, 'Fondo2');
 
         this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
@@ -81,7 +89,7 @@ class Bootloader extends Phaser.Scene {
         // this.martin = this.add.sprite(800, 200, 'martin', 0);
         this.anims.create({ key: 'defensa', frames: this.anims.generateFrameNames('martin', { prefix: 'defensa0', suffix: '.png', start: 1, end: 13 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'gancho', frames: this.anims.generateFrameNames('martin', { prefix: 'gancho0', suffix: '.png', start: 1, end: 16 }), repeat: -1, frameRate: 8 });
-        this.anims.create({ key: 'golpe', frames: this.anims.generateFrameNames('martin', { prefix: 'golpe0', suffix: '.png', start: 1, end: 12 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'golpeM', frames: this.anims.generateFrameNames('martin', { prefix: 'golpe0', suffix: '.png', start: 1, end: 12 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'rascar', frames: this.anims.generateFrameNames('martin', { prefix: 'rascar', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.martin.anims.play('rascar');
         this.martin.setAlpha(0);
@@ -91,15 +99,13 @@ class Bootloader extends Phaser.Scene {
         this.cici.anims.play('patada');
         this.cici.setAlpha(0);
 
-
         let arreglo = ["this.alheli", "this.martin", "this.manuel","this.cici"];
         var i=0;
 
-        function elegir(i) {
+        // function elegir(i) {
             
-        }
+        // }
 
-        
         this.input.keyboard.addKey(teclado.KeyCodes.D).on('down', () => {
             if(!this.seleccionado){
                 if(i==3){
@@ -259,34 +265,57 @@ class Bootloader extends Phaser.Scene {
 
         });
 
-        //AQUI IRA PA SELECCIONAR PERSONAJE presionando ENTER
+        //SELECCIÓN CON TECLA ENTER
         this.input.keyboard.addKey(teclado.KeyCodes.ENTER).on('down', () => {
             console.log("Entró a enter");
             this.seleccionado = true;
             if(arreglo[i]=="this.alheli")
             {
-                this.alheTexto.setAlpha(1).setDepth(20);
+                this.alheTexto.setAlpha(1);
             }
             if(arreglo[i]=="this.martin")
             {
-                this.movAlhe.setAlpha(1).setDepth(20);
+                this.martinTexto.setAlpha(1);
             }
             if(arreglo[i]=="this.manuel")
             {
-                this.movAlhe.setAlpha(1).setDepth(20);
+                this.manuelTexto.setAlpha(1);
             }
             if(arreglo[i]=="this.cici")
             {
-                this.movAlhe.setAlpha(1).setDepth(20);
+                this.ciciTexto.setAlpha(1);
             }            
         });
 
-        //ESCAPE PARA SALIR DE SELECCION
+        //SALIR DE SELECCIÓN CON TECLA ESCAPE
         this.input.keyboard.addKey(teclado.KeyCodes.ESC).on('down', () => {
             console.log("Entró a escape");
             this.seleccionado = false;
-            this.movAlhe.setAlpha(0);           
+            this.alheTexto.setAlpha(0);
+            this.alheli.anims.play('idle');
+            this.martinTexto.setAlpha(0);
+            this.martin.anims.play('rascar');
+            this.manuelTexto.setAlpha(0);
+            this.manuel.anims.play('manu');
+            this.ciciTexto.setAlpha(0);
         });
+
+        //FUNCIONALIDAD CON TECLAS
+        this.input.keyboard.addKey(teclado.KeyCodes.G).on('down', () => {
+            if(this.seleccionado){
+                this.alheli.anims.play('golpe');
+            }
+        });   
+        this.input.keyboard.addKey(teclado.KeyCodes.B).on('down', () => {
+            if(this.seleccionado){
+                this.alheli.anims.play('baile');
+            }
+        }); 
+        this.input.keyboard.addKey(teclado.KeyCodes.R).on('down', () => {
+            if(this.seleccionado){
+                this.alheli.anims.play('rodillas');
+            }
+        });      
 
         // this.alheliR.on(eventos.POINTER_OVER, function() {
         //     this.setAlpha(0);
