@@ -14,6 +14,7 @@ class Bootloader extends Phaser.Scene {
         this.load.path = './assets/';
         this.load.image('Fondo2', 'fondo.jpg');
         this.load.image('wooden', 'rockframe.png');
+        this.load.image('selecciona', 'selecciona.png');
         this.load.audio('principal', ['./principal.mp3']);
         this.load.audio('martinSong', ['./martin.mp3']);
         this.load.audio('alheSong', ['./alheli.mp3']);
@@ -40,6 +41,7 @@ class Bootloader extends Phaser.Scene {
     }
 
     create() {
+        this.selecciona =  this.add.image(750, 40, 'selecciona').setScale(0.9).setDepth(10);
         //BANDERAS
         this.seleccionado = false;
 
@@ -329,6 +331,7 @@ class Bootloader extends Phaser.Scene {
             this.select.play()
             this.principal.stop()
             this.seleccionado = true;
+            this.selecciona.setAlpha(0)
             if(arreglo[i]=="this.alheli")
             {
                 this.alheliR.setAlpha(0);
@@ -378,6 +381,7 @@ class Bootloader extends Phaser.Scene {
         this.input.keyboard.addKey(teclado.KeyCodes.ESC).on('down', () => {
             console.log("Entró a escape");
             this.seleccionado = false;
+            this.selecciona.setAlpha(1)
             //ALHELI CONFIGURACIÓN
             this.alheli.setAlpha(0);
             this.alheliR.setAlpha(1);
