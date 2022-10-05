@@ -25,14 +25,18 @@ class Bootloader extends Phaser.Scene {
         //ALHELÍ
         this.load.atlas('alhe', 'alheli/alheli.png', 'alheli/alheli.json');
         this.load.image('RostroA', 'alheli/alhe_rostro.png');
+        this.load.image('nombreAlhe', 'alheli/alheli_nombre.png');
         //MANUEL
         this.load.atlas('manu', 'manuel/manuel.png', 'manuel/manuel.json');
         this.load.image('RostroManu', 'manuel/manu_rostro.png');
+        this.load.image('nombreManu', 'manuel/manu_nombre.png');
         //MARTÍN
         this.load.atlas('martin', 'martin/martin.png', 'martin/martin.json');
         this.load.image('RostroM', 'martin/martin_rostro.png');
+        this.load.image('nombreM', 'martin/martin_nombre.png');
         //CITLALLI
         this.load.image('RostroC', 'citlalli/cici_rostro.png');
+        this.load.image('nombreCici', 'citlalli/cici_nombre.png');
     }
 
     create() {
@@ -94,6 +98,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
         //this.alheli.anims.play('idle');
         this.alheli.setAlpha(0);
+        this.alheliNombre = this.add.image(180, 510, 'nombreAlhe').setScale(0.20);
         
         //ANIMACIÓN MANUEL
         // this.manuel = this.add.sprite(500, 200, 'manu', 0);
@@ -103,6 +108,7 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'patada', frames: this.anims.generateFrameNames('manu', { prefix: 'patada', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
         this.manuel.anims.play('manu');
         this.manuel.setAlpha(0);
+        this.manuNombre = this.add.image(970, 510, 'nombreManu').setScale(0.20);
 
         //ANIMACIÓN MARTÍN
         // this.martin = this.add.sprite(800, 200, 'martin', 0);
@@ -112,11 +118,13 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rascar', frames: this.anims.generateFrameNames('martin', { prefix: 'rascar', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.martin.anims.play('rascar');
         this.martin.setAlpha(0);
+        this.martinNombre = this.add.image(560, 510, 'nombreM').setScale(0.20);
 
         //ANIMACIÓN CICI
         // this.cici = this.add.sprite(800, 200, 'martin', 0);
         this.cici.anims.play('patada');
         this.cici.setAlpha(0);
+        this.ciciNombre = this.add.image(1330, 510, 'nombreCici').setScale(0.20);
 
         let arreglo = ["this.alheli", "this.martin", "this.manuel","this.cici"];
         var i=0;
