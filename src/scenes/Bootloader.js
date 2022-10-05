@@ -21,7 +21,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('manuelSong', ['./manuela.mp3']);
         this.load.audio('pop', ['./pop.mp3']);
         this.load.audio('select', ['./select.mp3']);
-        this.load.image('RostroA', 'alheli/alhe_rostro.png');
+        this.load.image('MovFondo', 'instrucciones.png');
         //ALHELÍ
         this.load.atlas('alhe', 'alheli/alheli.png', 'alheli/alheli.json');
         this.load.image('RostroA', 'alheli/alhe_rostro.png');
@@ -56,11 +56,20 @@ class Bootloader extends Phaser.Scene {
         this.cici = this.add.sprite(1320, 260, 'manu', 0).setScale(0.8);
         this.ciciR = this.add.image(1350, 260, 'RostroC').setInteractive().setScale(0.35);
 
-        this.dir = this.add.text(400, 650, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
-        this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.martinTexto = this.add.text(425,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.manuelTexto = this.add.text(800,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.ciciTexto = this.add.text(1000,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        //TEXTOS NOMBRES Y DIRECCIONES
+        this.dir = this.add.text(400, 700, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
+        this.alheTexto = this.add.text(45,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondo =  this.add.image(175, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+
+        this.martinTexto = this.add.text(425,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoM =  this.add.image(550, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+
+        this.manuelTexto = this.add.text(830,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoMa =  this.add.image(965, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+
+        this.ciciTexto = this.add.text(1180,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoC =  this.add.image(1320, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+
         this.fondo = this.add.image(750, 360, 'Fondo2');
 
         this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
@@ -305,6 +314,8 @@ class Bootloader extends Phaser.Scene {
                 this.alheliR.setAlpha(0);
                 this.alheli.setAlpha(1);
                 this.alheTexto.setAlpha(1);
+                this.movFondo.setAlpha(1);
+
                 this.ciciSong.stop()
                 this.martinSong.stop()
                 this.alheSong.play()
@@ -312,6 +323,8 @@ class Bootloader extends Phaser.Scene {
             if(arreglo[i]=="this.martin")
             {
                 this.martinTexto.setAlpha(1);
+                this.movFondoM.setAlpha(1);
+
                 this.manuelSong.stop()
                 this.alheSong.stop()
                 this.martinSong.play()
@@ -319,6 +332,8 @@ class Bootloader extends Phaser.Scene {
             if(arreglo[i]=="this.manuel")
             {
                 this.manuelTexto.setAlpha(1);
+                this.movFondoMa.setAlpha(1);
+
                 this.ciciSong.stop()
                 this.martinSong.stop()
                 this.manuelSong.play()
@@ -326,6 +341,7 @@ class Bootloader extends Phaser.Scene {
             if(arreglo[i]=="this.cici")
             {
                 this.ciciTexto.setAlpha(1);
+                this.movFondoC.setAlpha(1);
                 this.alheSong.stop()
                 this.manuelSong.stop()
                 this.ciciSong.play()
@@ -339,12 +355,19 @@ class Bootloader extends Phaser.Scene {
             this.alheli.setAlpha(0);
             this.alheliR.setAlpha(1);
             this.alheTexto.setAlpha(0);
+            this.movFondo.setAlpha(0);
             this.alheli.anims.play('idle');
+
             this.martinTexto.setAlpha(0);
             this.martin.anims.play('rascar');
+            this.movFondoM.setAlpha(0);
+
             this.manuelTexto.setAlpha(0);
             this.manuel.anims.play('manu');
+            this.movFondoMa.setAlpha(0);
+
             this.ciciTexto.setAlpha(0);
+            this.movFondoC.setAlpha(0);
 
             this.alheSong.stop()
             this.manuelSong.stop()
@@ -387,33 +410,6 @@ class Bootloader extends Phaser.Scene {
             }
         });      
    
-
-        // this.alheliR.on(eventos.POINTER_OVER, function() {
-        //     this.setAlpha(0);
-        //     this.alheli.alpha= 1;
-        // });
-        // this.alheliR.on(eventos.POINTER_OUT, function() {
-        //     this.setAlpha(1);
-        //     this.alheli.alpha= 0;
-        // });
-
-        // this.input.on(teclado., (pointer, gameObject) => {
-        //     // this.pasar.play();
-        //     gameObject.setTint(0xabdcd2);
-        //     gameObject.setScale(0.35);
-        //     let x = gameObject.name;
-        //     this.alheliR.setAlpha(0);
-        //     this.x.setAlpha(1);
-        //     this.alheli.anims.play("idle");
-        //     });
-
-        // this.input.on(eventos.GAMEOBJECT_OUT, (pointer, gameObject) => {
-        //     gameObject.clearTint();
-        //     gameObject.setScale(0.3);
-        //     this.alheliR.setAlpha(1);
-        //     this.alheli.anims.stop(null, true);
-        //     this.alheli.setAlpha(0);
-        //     });
     }
 
     update(time, delta) {
