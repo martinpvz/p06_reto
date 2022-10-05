@@ -59,19 +59,19 @@ class Bootloader extends Phaser.Scene {
 
         //TEXTOS NOMBRES Y DIRECCIONES
         this.dir = this.add.text(400, 700, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
-        this.alheTexto = this.add.text(45,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
-        this.movFondo =  this.add.image(175, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+        this.alheTexto = this.add.text(65,575,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondo =  this.add.image(200, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
-        this.martinTexto = this.add.text(425,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
-        this.movFondoM =  this.add.image(550, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+        this.martinTexto = this.add.text(440,575,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoM =  this.add.image(570, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
-        this.manuelTexto = this.add.text(830,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
-        this.movFondoMa =  this.add.image(965, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+        this.manuelTexto = this.add.text(835,575,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoMa =  this.add.image(965, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
-        this.ciciTexto = this.add.text(1180,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
-        this.movFondoC =  this.add.image(1320, 600, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
+        this.ciciTexto = this.add.text(1195,575,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0).setDepth(1);
+        this.movFondoC =  this.add.image(1325, 615, 'MovFondo').setScale(0.15).setDepth(0).setAlpha(0);
 
-        this.fondo = this.add.image(750, 360, 'Fondo2');
+        this.fondo = this.add.image(750, 360, 'Fondo2').setScale(3);
         //CUADROS
         this.cuadro = this.add.image(200, 260, 'wooden').setInteractive().setName("alheli");
         this.cuadro2 = this.add.image(570, 260, 'wooden').setInteractive().setName("martin");
@@ -391,6 +391,7 @@ class Bootloader extends Phaser.Scene {
             this.martinTexto.setAlpha(0);
             this.martin.anims.play('rascar');
             this.movFondoM.setAlpha(0);
+
             //MANUEL CONFIGURACIÓN
             this.manuel.setAlpha(0);
             this.manuelR.setAlpha(1);
@@ -398,7 +399,11 @@ class Bootloader extends Phaser.Scene {
             this.manuel.anims.play('manu');
             this.movFondoMa.setAlpha(0);
 
+            //MANUEL CONFIGURACIÓN
+            this.cici.setAlpha(0);
+            this.ciciR.setAlpha(1);
             this.ciciTexto.setAlpha(0);
+            this.manuel.anims.play('manu');
             this.movFondoC.setAlpha(0);
 
             this.alheSong.stop()
