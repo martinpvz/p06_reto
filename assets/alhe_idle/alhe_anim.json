@@ -1,0 +1,44 @@
+{
+    "anims": [
+        {
+            "key": "alhe_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "alhe",
+                    "frame": "alhe1"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe2"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe3"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe4"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe5"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe4"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe3"
+                },
+                {
+                    "key": "alhe",
+                    "frame": "alhe2"
+                }
+            ]
+        }
+    ]
+}
