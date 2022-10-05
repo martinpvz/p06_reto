@@ -44,30 +44,31 @@ class Bootloader extends Phaser.Scene {
         this.seleccionado = false;
 
         //AÑADIR SPRITES
+        //SPRITE ALHELI
         this.alheli = this.add.sprite(180, 260, 'alhe', 0).setScale(0.8);
         this.alheliR = this.add.image(180, 260, 'RostroA').setInteractive().setScale(0.25);
-
+        //SPRITE MARTIN
         this.martin = this.add.sprite(550, 260, 'martin', 0).setScale(1);
         this.martinR = this.add.image(550, 260, 'RostroM').setInteractive().setScale(0.35);
-
+        //SPRITE MANUEL
         this.manuel = this.add.sprite(950, 260, 'manu', 0).setScale(0.8);
         this.manuelR = this.add.image(950, 270, 'RostroManu').setInteractive().setScale(0.28);
-
+        //SPRITE CICI
         this.cici = this.add.sprite(1320, 260, 'manu', 0).setScale(0.8);
         this.ciciR = this.add.image(1350, 260, 'RostroC').setInteractive().setScale(0.35);
-
+        //TEXTOS
         this.dir = this.add.text(50, 650, ('A para Izquierda - D para Derecha = ENTER seleccionar'), { font: '38px Arial Black' });
         this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.martinTexto = this.add.text(50,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.manuelTexto = this.add.text(50,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.ciciTexto = this.add.text(50,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.fondo = this.add.image(750, 360, 'Fondo2');
-
+        //CUADROS
         this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
         this.cuadro2 = this.add.image(550, 260, 'wooden').setInteractive().setName("martin");
         this.cuadro3 = this.add.image(950, 260, 'wooden').setInteractive().setName("manuel");
         this.cuadro4 = this.add.image(1320, 260, 'wooden').setInteractive().setName("cici");
-
+        //FONDOS
         this.fondo.setScale(2.2);
         this.fondo.setDepth(-1);
 
@@ -98,17 +99,17 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rodillas', frames: this.anims.generateFrameNames('alhe', { prefix: 'rodillas0', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
         //this.alheli.anims.play('idle');
         this.alheli.setAlpha(0);
-        this.alheliNombre = this.add.image(180, 510, 'nombreAlhe').setScale(0.20);
+        this.alheliNombre = this.add.image(180, 520, 'nombreAlhe').setScale(0.20);
         
         //ANIMACIÓN MANUEL
         // this.manuel = this.add.sprite(500, 200, 'manu', 0);
-        this.anims.create({ key: 'amen', frames: this.anims.generateFrameNames('manu', { prefix: 'amen', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 8 });
-        this.anims.create({ key: 'fuerte', frames: this.anims.generateFrameNames('manu', { prefix: 'fuerte', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'amen', frames: this.anims.generateFrameNames('manu', { prefix: 'amen', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 6 });
+        this.anims.create({ key: 'fuerte', frames: this.anims.generateFrameNames('manu', { prefix: 'fuerte', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 6 });
         this.anims.create({ key: 'manu', frames: this.anims.generateFrameNames('manu', { prefix: 'manu', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.anims.create({ key: 'patada', frames: this.anims.generateFrameNames('manu', { prefix: 'patada', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
         this.manuel.anims.play('manu');
         this.manuel.setAlpha(0);
-        this.manuNombre = this.add.image(970, 510, 'nombreManu').setScale(0.20);
+        this.manuNombre = this.add.image(970, 520, 'nombreManu').setScale(0.20);
 
         //ANIMACIÓN MARTÍN
         // this.martin = this.add.sprite(800, 200, 'martin', 0);
@@ -118,13 +119,13 @@ class Bootloader extends Phaser.Scene {
         this.anims.create({ key: 'rascar', frames: this.anims.generateFrameNames('martin', { prefix: 'rascar', suffix: '.png', start: 1, end: 10 }), repeat: -1, frameRate: 8 });
         this.martin.anims.play('rascar');
         this.martin.setAlpha(0);
-        this.martinNombre = this.add.image(560, 510, 'nombreM').setScale(0.20);
+        this.martinNombre = this.add.image(560, 520, 'nombreM').setScale(0.20);
 
         //ANIMACIÓN CICI
         // this.cici = this.add.sprite(800, 200, 'martin', 0);
         this.cici.anims.play('patada');
         this.cici.setAlpha(0);
-        this.ciciNombre = this.add.image(1330, 510, 'nombreCici').setScale(0.20);
+        this.ciciNombre = this.add.image(1330, 520, 'nombreCici').setScale(0.20);
 
         let arreglo = ["this.alheli", "this.martin", "this.manuel","this.cici"];
         var i=0;
@@ -145,6 +146,7 @@ class Bootloader extends Phaser.Scene {
                 if(arreglo[i]=="this.alheli")
                 {
                     this.alheliR.setAlpha(1).setScale(.28);
+                    this.alheliNombre.setScale(.23);
                     this.cuadro.setTint(0x4F33FF);
                     this.cuadro.setScale(0.35)
     
@@ -166,6 +168,7 @@ class Bootloader extends Phaser.Scene {
     
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
     
@@ -203,6 +206,7 @@ class Bootloader extends Phaser.Scene {
     
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
                 }
@@ -222,6 +226,7 @@ class Bootloader extends Phaser.Scene {
                 {
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.28);
+                    this.alheliNombre.setScale(.23);
                     this.cuadro.setTint(0x4F33FF);
                     this.cuadro.setScale(0.35);
                     this.alheli.anims.play('idle');
@@ -245,6 +250,7 @@ class Bootloader extends Phaser.Scene {
     
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
     
@@ -273,7 +279,7 @@ class Bootloader extends Phaser.Scene {
                 if(arreglo[i]=="this.cici")
                 {
                     this.cici.setAlpha(0);
-                    this.ciciR.setAlpha(1).setScale(.5);
+                    this.ciciR.setAlpha(1).setScale(.4);
                     this.cuadro4.setTint(0x4F33FF);
                     this.cuadro4.setScale(0.35);
     
@@ -284,6 +290,7 @@ class Bootloader extends Phaser.Scene {
     
                     this.alheli.setAlpha(0);
                     this.alheliR.setAlpha(1).setScale(.25);
+                    this.alheliNombre.setScale(.2);
                     this.cuadro.clearTint();
                     this.cuadro.setScale(0.3);
                 }
