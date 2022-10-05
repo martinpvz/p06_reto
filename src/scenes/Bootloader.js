@@ -52,11 +52,11 @@ class Bootloader extends Phaser.Scene {
         this.cici = this.add.sprite(1320, 260, 'manu', 0).setScale(0.8);
         this.ciciR = this.add.image(1350, 260, 'RostroC').setInteractive().setScale(0.35);
 
-        this.dir = this.add.text(50, 650, ('A para Izquierda - D para Derecha = ENTER seleccionar'), { font: '38px Arial Black' });
+        this.dir = this.add.text(400, 650, ('A para Izquierda - D para Derecha - ENTER seleccionar - ESC deseleccionar'), { font: '20px Arial Black' });
         this.alheTexto = this.add.text(50,550,'Pruebe los movimientos:\n[G]Golpear\n[B]Bailar\n[R]Tocar rodillas',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.martinTexto = this.add.text(50,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.manuelTexto = this.add.text(50,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
-        this.ciciTexto = this.add.text(50,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.martinTexto = this.add.text(425,550,'Pruebe los movimientos:\n[J]Golpear\n[K]Defender\n[L]Gancho',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.manuelTexto = this.add.text(800,550,'Pruebe los movimientos:\n[T]Posar\n[Y]Equilibrio\n[U]Patada',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
+        this.ciciTexto = this.add.text(1000,550,'Pruebe los movimientos:\n[Z]Festejar\n[X]Girar\n[ESPACIO]Sartenazo',{fontFamily: 'Consolas',color: '#19484A',fontSize: '22px'}).setAlpha(0);
         this.fondo = this.add.image(750, 360, 'Fondo2');
 
         this.cuadro = this.add.image(180, 260, 'wooden').setInteractive().setName("alheli");
