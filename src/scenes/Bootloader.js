@@ -36,6 +36,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image('RostroM', 'martin/martin_rostro.png');
         this.load.image('nombreM', 'martin/martin_nombre.png');
         //CITLALLI
+        this.load.atlas('cici', 'citlalli/cici.png', 'citlalli/cici.json');
         this.load.image('RostroC', 'citlalli/cici_rostro.png');
         this.load.image('nombreCici', 'citlalli/cici_nombre.png');
     }
@@ -134,7 +135,11 @@ class Bootloader extends Phaser.Scene {
 
         //ANIMACIÓN CICI
         // this.cici = this.add.sprite(800, 200, 'martin', 0);
-        this.cici.anims.play('patada');
+        this.anims.create({ key: 'festejar', frames: this.anims.generateFrameNames('cici', { prefix: 'baile', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'beso', frames: this.anims.generateFrameNames('cici', { prefix: 'beso', suffix: '.png', start: 1, end: 7 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'giro', frames: this.anims.generateFrameNames('cici', { prefix: 'giro', suffix: '.png', start: 1, end: 8 }), repeat: -1, frameRate: 8 });
+        this.anims.create({ key: 'sarten', frames: this.anims.generateFrameNames('cici', { prefix: 'sarten', suffix: '.png', start: 1, end: 9 }), repeat: -1, frameRate: 8 });
+        this.cici.anims.play('beso');
         this.cici.setAlpha(0);
         this.ciciNombre = this.add.image(1330, 520, 'nombreCici').setScale(0.20);
 
@@ -403,11 +408,11 @@ class Bootloader extends Phaser.Scene {
             this.manuel.anims.play('manu');
             this.movFondoMa.setAlpha(0);
 
-            //MANUEL CONFIGURACIÓN
+            //CICI CONFIGURACIÓN
             this.cici.setAlpha(0);
             this.ciciR.setAlpha(1);
             this.ciciTexto.setAlpha(0);
-            this.manuel.anims.play('manu');
+            this.cici.anims.play('beso');
             this.movFondoC.setAlpha(0);
 
             this.alheSong.stop()
@@ -466,7 +471,23 @@ class Bootloader extends Phaser.Scene {
             if(this.seleccionado){
                 this.manuel.anims.play('patada');
             }
+        });  
+        //FUNCIONALIDAD CON TECLAS CITLA
+        this.input.keyboard.addKey(teclado.KeyCodes.Z).on('down', () => {
+            if(this.seleccionado){
+                this.cici.anims.play('festejar');
+            }
         });   
+        this.input.keyboard.addKey(teclado.KeyCodes.X).on('down', () => {
+            if(this.seleccionado){
+                this.cici.anims.play('giro');
+            }
+        }); 
+        this.input.keyboard.addKey(teclado.KeyCodes.SPACE).on('down', () => {
+            if(this.seleccionado){
+                this.cici.anims.play('sarten');
+            }
+        });    
    
     }
 
