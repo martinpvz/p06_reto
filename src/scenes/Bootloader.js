@@ -13,6 +13,12 @@ class Bootloader extends Phaser.Scene {
         this.load.path = './assets/';
         this.load.image('Fondo2', 'Fondo2.png');
         this.load.image('wooden', 'woodframe.png');
+        this.load.audio('principal', ['./principal.mp3']);
+        this.load.audio('martinSong', ['./martin.mp3']);
+        this.load.audio('alheSong', ['./alheli.mp3']);
+        this.load.audio('ciciSong', ['./citlalli.mp3']);
+        this.load.audio('manuelSong', ['./manuela.mp3']);
+        this.load.audio('pop', ['./pop.mp3']);
         this.load.image('RostroA', 'alheli/alhe_rostro.png');
         //ALHELÍ
         this.load.atlas('alhe', 'alheli/alheli.png', 'alheli/alheli.json');
@@ -58,6 +64,16 @@ class Bootloader extends Phaser.Scene {
         this.cuadro4.setScale(0.3);
 
         const teclado = Phaser.Input.Keyboard;
+
+        //MUSIQUITA
+        this.principal = this.sound.add('principal', { loop: true, volume: 0.2 });
+        this.martinSong = this.sound.add('martinSong', { loop: true, volume: 0.2 });
+        this.alheSong = this.sound.add('alheSong', { loop: true, volume: 0.2 });
+        this.ciciSong = this.sound.add('ciciSong', { loop: true, volume: 0.2 });
+        this.manuelSong = this.sound.add('manuelSong', { loop: true, volume: 0.2 });
+        this.pop = this.sound.add('pop', { loop: false, volume: 0.5 });
+        this.principal.play();
+        //this.principal.stop();
 
         //ANIMACIÓN ALHELÍ
         // this.alheli = this.add.sprite(200, 200, 'alhe', 0);
@@ -107,6 +123,8 @@ class Bootloader extends Phaser.Scene {
                 }else{
                     i+=1;
                 }
+
+                this.principal.stop()
                 if(arreglo[i]=="this.alheli")
                 {
                     this.alheli.setAlpha(1);
@@ -123,6 +141,9 @@ class Bootloader extends Phaser.Scene {
                     this.ciciR.setAlpha(1);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
+                    
+                    this.pop.play()
+                    this.alheSong.play()
                 }
                 if(arreglo[i]=="this.martin")
                 {
