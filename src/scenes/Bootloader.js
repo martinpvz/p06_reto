@@ -20,6 +20,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('ciciSong', ['./citlalli.mp3']);
         this.load.audio('manuelSong', ['./manuela.mp3']);
         this.load.audio('pop', ['./pop.mp3']);
+        this.load.audio('select', ['./select.mp3']);
         this.load.image('RostroA', 'alheli/alhe_rostro.png');
         //ALHELÍ
         this.load.atlas('alhe', 'alheli/alheli.png', 'alheli/alheli.json');
@@ -81,6 +82,7 @@ class Bootloader extends Phaser.Scene {
         this.ciciSong = this.sound.add('ciciSong', { loop: true, volume: 0.2 });
         this.manuelSong = this.sound.add('manuelSong', { loop: true, volume: 0.2 });
         this.pop = this.sound.add('pop', { loop: false, volume: 0.5 });
+        this.select = this.sound.add('select', { loop: false, volume: 0.5 });
         this.principal.play();
         //this.principal.stop();
 
@@ -131,7 +133,7 @@ class Bootloader extends Phaser.Scene {
                     i+=1;
                 }
 
-                this.principal.stop()
+                this.pop.play()
                 if(arreglo[i]=="this.alheli")
                 {
                     this.alheli.setAlpha(1);
@@ -148,9 +150,6 @@ class Bootloader extends Phaser.Scene {
                     this.ciciR.setAlpha(1);
                     this.cuadro4.clearTint();
                     this.cuadro4.setScale(0.3);
-                    
-                    this.pop.play()
-                    this.alheSong.play()
                 }
                 if(arreglo[i]=="this.martin")
                 {
@@ -214,6 +213,7 @@ class Bootloader extends Phaser.Scene {
                 }else{
                     i-=1;
                 }
+                this.pop.play()
                 if(arreglo[i]=="this.alheli")
                 {
                     this.alheli.setAlpha(1);
@@ -290,22 +290,36 @@ class Bootloader extends Phaser.Scene {
         //SELECCIÓN CON TECLA ENTER
         this.input.keyboard.addKey(teclado.KeyCodes.ENTER).on('down', () => {
             console.log("Entró a enter");
+            this.select.play()
+            this.principal.stop()
             this.seleccionado = true;
             if(arreglo[i]=="this.alheli")
             {
                 this.alheTexto.setAlpha(1);
+                this.ciciSong.stop()
+                this.martinSong.stop()
+                this.alheSong.play()
             }
             if(arreglo[i]=="this.martin")
             {
                 this.martinTexto.setAlpha(1);
+                this.manuelSong.stop()
+                this.alheSong.stop()
+                this.martinSong.play()
             }
             if(arreglo[i]=="this.manuel")
             {
                 this.manuelTexto.setAlpha(1);
+                this.ciciSong.stop()
+                this.martinSong.stop()
+                this.manuelSong.play()
             }
             if(arreglo[i]=="this.cici")
             {
                 this.ciciTexto.setAlpha(1);
+                this.alheSong.stop()
+                this.manuelSong.stop()
+                this.ciciSong.play()
             }            
         });
 
@@ -320,6 +334,12 @@ class Bootloader extends Phaser.Scene {
             this.manuelTexto.setAlpha(0);
             this.manuel.anims.play('manu');
             this.ciciTexto.setAlpha(0);
+
+            this.alheSong.stop()
+            this.manuelSong.stop()
+            this.ciciSong.stop()
+            this.martinSong.stop()
+            this.principal.play()
         });
 
         //FUNCIONALIDAD CON TECLAS
